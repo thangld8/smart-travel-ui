@@ -1,0 +1,18 @@
+{
+    "api": {
+        "dns": {
+            "dev": "https://api-smart-travel.herokuapp.com",
+            "uat": "https://api-smart-travel.herokuapp.com",
+            "production": "https://api-smart-travel.herokuapp.com"
+        },
+        "public": {
+            "auth": {
+                "login": "/login",
+                "register": "/register"
+            }
+        },
+        "private": {
+            "hi": "/hi"
+        }
+    }
+}
