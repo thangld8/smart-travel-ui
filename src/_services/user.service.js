@@ -23,8 +23,10 @@ function login(email, password) {
 
     return fetch(loginApi, requestOptions).then(handleResponse)
             .then(user => {
-                localStorage.setItem('user', JSON.stringify(user));
-                return user;
+                if (user.email) {
+                    localStorage.setItem('user', JSON.stringify(user));
+                    return user;
+                }
             });
 }
 

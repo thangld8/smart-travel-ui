@@ -15,10 +15,18 @@ function login(emailAddress, password) {
         dispatch(request({ emailAddress }));
         userService.login(emailAddress, password)
             .then(user => {
-                dispatch(success(user));
-                history.push('/');
+                    if (!user.isLogin) {
+                        dispatch(failure(user.message));
+                        dispatch(alertActions.error(user.message));
+                        alert(user.message)
+                    } else {
+                        dispatch(success(user));
+                        history.push('/');
+                    }
+                    
                 },
                 error => {
+                    alert(error)
                     dispatch(failure(error));
                     dispatch(alertActions.error(error));
                 }
